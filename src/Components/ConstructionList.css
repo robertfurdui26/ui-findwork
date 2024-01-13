@@ -1,0 +1,54 @@
+/* Stilurile de bază pentru ecrane mici și mari */
+.card-client {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card-client-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #2d2d2d;
+    width: 100%; /* Lățime de 100% pentru a ocupa întreaga lățime a containerului */
+    max-width: 1000px; /* Lățime maximă pentru ecrane mai mari */
+    margin: 10px;
+    padding: 15px;
+    border: 4px solid #ff7f50; /* Portocaliu aprins */
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s ease;
+  }
+  
+  .card-client-item:hover {
+    transform: translateY(-8px);
+  }
+  
+  .card-serviceName {
+    margin: 0;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  
+  .card-description {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .card-address,
+  .card-phone {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #ff7f50; /* Portocaliu aprins */
+  }
+  
+  /* Media query pentru ecrane mici (maxim 600px) */
+  @media (max-width: 600px) {
+    .card-client-item {
+      max-width: 100%; /* Lățime maximă de 100% pentru ecrane mici */
+    }
+  }
+  

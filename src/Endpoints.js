@@ -10,7 +10,7 @@ const api = axios.create({
 
 const getConstruction = async (getConstructionDto) => {
     try {
-      const response = await api.get('/construction/getAllCons',{
+      const response = await api.get('/construction/getCons',{
         params:getConstructionDto,
       });
       if (response.status === 200) {
@@ -27,3 +27,23 @@ const getConstruction = async (getConstructionDto) => {
   };
   
   export { getConstruction };
+
+  const createConstruction = async (create) => {
+    try {
+      const response = await api.post('/construction/addCons',{
+        params:create,
+      });
+      if (response.status === 200) {
+        console.log('Create Construction here', response.data);
+        return response.data;
+      } else {
+        console.error('Error at API');
+        throw new Error('Error');
+      }
+    } catch (error) {
+      console.error('Error API', error);
+      throw error;
+    }
+  };
+  
+  export { createConstruction };
