@@ -1,118 +1,105 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './CreateConstruction.css';
 
 const CreateConstruction = () => {
   const [serviceName, setServiceName] = useState('');
   const [description, setDescription] = useState('');
   const [address, setAddress] = useState('');
   const [phone, setPhone] = useState('');
-  const [imageFile, setImageFile] = useState(null);
-  const [createConstruction, setCreateConstruction] = useState(null);
+  const [createdConstruction, setCreatedConstruction] = useState(null);
 
-  const handleCreateConstruction = async () => {
+  const handleCreateStudent = async () => {
     try {
-      const formData = new FormData();
-      formData.append('serviceName', serviceName);
-      formData.append('description', description);
-      formData.append('address', address);
-      formData.append('phone', phone);
-      formData.append('imageFile', imageFile);
-
-      const response = await axios.post('http://localhost:8080/construction/addCons', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
+      const response = await axios.post('http://localhost:8080/construction/addCons', {
+        serviceName:serviceName,
+        description:description,
+        address:address,
+        phone:phone
       });
 
-      setCreateConstruction(response.data);
+      setCreatedConstruction(response.data);
     } catch (error) {
-      console.error('Error creating construction', error);
+      console.error('Error creating student:', error);
     }
   };
 
   return (
-    <div className="container mt-5">
-      <div className="card-create bg-dark text-white">
-        <div className="card-body-create">
-          <h1 className="card-title-create">Create a Construction</h1>
-          <form>
-            <div className="mb-3">
-              <label htmlFor="serviceName" className="form-label">
-                Service Name:
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="serviceName"
-                value={serviceName}
-                onChange={(e) => setServiceName(e.target.value)}
-              />
-            </div>
+    <div className="card-client-cons">
+    <div className="">
+      <div className="card-client-item-cons">
+        <h1 className="card-title">Adauga o lucrarea de Constructie</h1>
+        <form>
+          <div className="mb-3">
+            <label htmlFor="serviceName" className="card-phone-cons">
+             Cum se numeste lucrarea ta?:
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="serviceName"
+              value={serviceName}
+              onChange={(e) => setServiceName(e.target.value)}
+            />
+          </div>
 
-            <div className="mb-3">
-              <label htmlFor="description" className="form-label">
-                Description:
-              </label>
-              <textarea
-                className="form-control"
-                id="description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </div>
+          <div className="mb-3 ">
+            <label htmlFor="description" className="card-phone-cons">
+              Descrie ce trebuie facut pentru lucrea ta:
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
 
-            <div className="mb-3">
-              <label htmlFor="address" className="form-label">
-                Address:
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="address"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-              />
-            </div>
+          <div className="mb-3">
+            <label htmlFor="address" className="card-address-cons">
+              Introduce-ti adresa lucrari dvs:
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+          </div>
 
-            <div className="mb-3">
-              <label htmlFor="phone" className="form-label">
-                Phone:
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="phone"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-              />
-            </div>
+          <div className="mb-3">
+            <label htmlFor="phone" className="card-phone-cons">
+              Introduce-ti datele dvs de contact:
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          
+          </div>
 
-            <div className="mb-3">
-              <label htmlFor="imageFile" className="form-label">
-                Image File:
-              </label>
-              <input
-                type="file"
-                className="form-control"
-                id="imageFile"
-                onChange={(e) => setImageFile(e.target.files[0])}
-              />
-            </div>
+          <button
+            type="button"
+            onClick={handleCreateStudent}
+          >
+            Adauga Lucrare
+          </button>
+        </form>
 
-            <button type="button" className="btn btn-black" onClick={handleCreateConstruction}>
-              Create Construction
-            </button>
-          </form>
-
-          {createConstruction && (
-            <div className="mt-4 bg-primary text-white p-4 rounded">
-              <h2>Construction Created</h2>
-              <p className="mb-1">Service Name: {createConstruction.serviceName}</p>
-            </div>
-          )}
-        </div>
+        {createdConstruction && (
+  <div className="">
+    <h2>Lucrarea Adaugata</h2>
+    <p className="mb-1">Name: {createdConstruction.serviceName}</p>
+  </div>
+        )}
       </div>
     </div>
+  </div>
   );
 };
 

@@ -54,8 +54,8 @@ function Navbar() {
             onMouseEnter={onMouseEnterServices}
             onMouseLeave={onMouseLeaveServices}
           >
-            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-              Servici <i className='fas fa-caret-down' />
+            <Link to='/add' className='nav-links' onClick={closeMobileMenu}>
+              Adauga Lucrari <i className='fas fa-caret-down' />
             </Link>
           </li>
           <li
@@ -63,18 +63,18 @@ function Navbar() {
             onMouseEnter={onMouseEnterCourses}
             onMouseLeave={onMouseLeaveCourses}
           >
-            <Link to='/courses' className='nav-links' onClick={closeMobileMenu}>
-              Profile Constructori <i className='fas fa-caret-down' />
+            <Link to='/searchService' className='nav-links' onClick={closeMobileMenu}>
+              Cauta Lucrari <i className='fas fa-caret-down' />
             </Link>
           </li>
           <li className='nav-item'>
-            <Link to='/teacher' className='nav-links' onClick={closeMobileMenu}>
-              Sudura
+            <Link to='/profile' className='nav-links' onClick={closeMobileMenu}>
+              Profile Meseriasi
             </Link>
           </li>
           <li className='nav-item'>
             <Link to='/contact-us' className='nav-links' onClick={closeMobileMenu}>
-              Adauga Serviciu
+              Future
             </Link>
           </li>
         </ul>
