@@ -1,18 +1,18 @@
 /* Stilurile de bază pentru ecrane mici și mari */
-.card-client-cons {
+.card-client-weld {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 60px;
   }
   
-  .card-client-item-cons {
+  .card-client-item-weld {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background: #2d2d2d;
     width: 100%; /* Lățime de 100% pentru a ocupa întreaga lățime a containerului */
-    max-width: 1000px; /* Lățime maximă pentru ecrane mai mari */
+    max-width: 650px; /* Lățime maximă pentru ecrane mai mari */
     margin: 10px;
     height: 500px;
     padding: 15px;
@@ -25,11 +25,11 @@
     transition: all 0.3s ease;
   }
   
-  .card-client-item-cons:hover {
+  .card-client-item-weld:hover {
     transform: translateY(-8px);
   }
   
-  .card-serviceName-cons {
+  .card-serviceName-weld {
     margin: 0;
     font-weight: 600;
     font-size: 18px;

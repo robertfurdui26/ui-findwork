@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import DropDownConstruction from './DropDownConstruction';
+
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -57,6 +59,7 @@ function Navbar() {
             <Link to='/add' className='nav-links' onClick={closeMobileMenu}>
               Adauga Lucrari <i className='fas fa-caret-down' />
             </Link>
+            {servicesDropdown && <DropDownConstruction />}
           </li>
           <li
             className='nav-item'
